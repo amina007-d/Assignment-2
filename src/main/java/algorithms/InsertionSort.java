@@ -11,42 +11,41 @@ public class InsertionSort {
 
     public void sort(int[] arr) {
         int n = arr.length;
+        if (n < 2) return;
+
+        boolean sorted = true;
+        for (int i = 1; i < n; i++) {
+            tracker.cmp();
+            tracker.read(2);
+            if (arr[i] < arr[i - 1]) {
+                sorted = false;
+                break;
+            }
+        }
+        if (sorted) return;
 
         for (int i = 1; i < n; i++) {
             int key = arr[i];
             tracker.read();
-            tracker.read();
-            tracker.cmp();
-            if (arr[i - 1] <= key) {
-                continue;
+            int left = 0;
+            int right = i - 1;
+
+            while (left <= right) {
+                int mid = (left + right) >>> 1;
+                tracker.read();
+                tracker.cmp();
+                if (key < arr[mid]) right = mid - 1;
+                else left = mid + 1;
             }
 
-            int pos = binarySearch(arr, key, 0, i - 1);
-
-            for (int j = i - 1; j >= pos; j--) {
-                tracker.read();
-                tracker.write();
+            for (int j = i - 1; j >= left; j--) {
                 tracker.move();
+                tracker.write();
                 arr[j + 1] = arr[j];
             }
 
             tracker.write();
-            arr[pos] = key;
+            arr[left] = key;
         }
-    }
-
-    private int binarySearch(int[] arr, int key, int low, int high) {
-        while (low <= high) {
-            int mid = (low + high) >>> 1;
-
-            tracker.read();
-            tracker.cmp();
-            if (arr[mid] > key) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-        }
-        return low;
     }
 }
