@@ -10,7 +10,7 @@ public class BenchMarkRunner {
 
     public static void main(String[] args) throws IOException {
         String algo = "insertionsort";
-        String out = "results_full.csv";
+        String out = "results_optimization.csv";
         int trials = 3;
 
         int[] sizes = {100, 1000, 10000, 100000};
