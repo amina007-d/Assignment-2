@@ -13,7 +13,7 @@ time_ns,n,algo,dist,comparisons,moves,reads,writes,allocs,notes
 1914521500,100000,insertionsort,random,1622516,2494278195,2496000710,2494378183,0,trial=3
 700,100,insertionsort,sorted,99,0,198,0,0,trial=1
 600,100,insertionsort,sorted,99,0,198,0,0,trial=2
-600,100,insertionsort,sorted,99,0,198,0,0,trial=3
+600,100,insertionsort,sorted,99,0,198,0,0,trial+=3
 2500,1000,insertionsort,sorted,999,0,1998,0,0,trial=1
 2600,1000,insertionsort,sorted,999,0,1998,0,0,trial=2
 2500,1000,insertionsort,sorted,999,0,1998,0,0,trial=3

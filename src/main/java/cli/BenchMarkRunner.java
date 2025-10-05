@@ -16,9 +16,6 @@ public class BenchMarkRunner {
         int[] sizes = {100, 1000, 10000, 100000};
         String[] distributions = {"random", "sorted", "reversed", "nearly"};
 
-        System.out.println("Starting full benchmark for InsertionSort...");
-        System.out.printf("Output file: %s%n%n", out);
-
         Random rnd = new Random(42);
 
         for (String dist : distributions) {
