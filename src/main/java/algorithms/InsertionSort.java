@@ -1,5 +1,4 @@
 package algorithms;
-
 import metrics.PerformanceTracker;
 
 public class InsertionSort {
@@ -10,11 +9,14 @@ public class InsertionSort {
     }
 
     public void sort(int[] arr) {
-        int n = arr.length;
-        if (n < 2) return;
+        if (arr == null || arr.length < 2) {
+            tracker.read();
+            return;
+        }
 
+        // Early exit if already sorted
         boolean sorted = true;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < arr.length; i++) {
             tracker.cmp();
             tracker.read(2);
             if (arr[i] < arr[i - 1]) {
@@ -24,7 +26,8 @@ public class InsertionSort {
         }
         if (sorted) return;
 
-        for (int i = 1; i < n; i++) {
+        // Main insertion sort with binary search
+        for (int i = 1; i < arr.length; i++) {
             int key = arr[i];
             tracker.read();
             int left = 0;

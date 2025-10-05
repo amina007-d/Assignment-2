@@ -1,5 +1,4 @@
 package algorithms;
-
 import metrics.PerformanceTracker;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +18,13 @@ class InsertionSortTest {
         sorter.sort(arr);
 
         assertArrayEquals(copy, arr, "Arrays should match after sorting");
+    }
+
+    @Test
+    void testNullArray() {
+        PerformanceTracker tracker = new PerformanceTracker();
+        InsertionSort sorter = new InsertionSort(tracker);
+        sorter.sort(null);
     }
 
     @Test
